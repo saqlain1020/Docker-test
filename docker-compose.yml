@@ -1,0 +1,45 @@
+version: 2
+services:
+  redis:
+    image: redis
+    networks:
+      - backend
+
+  db:
+    image: postgres:4.1
+    networks:
+      - backend
+
+  vote:
+    build: ./voting-app
+    ports:
+      - 5000:80
+    links:
+      - redis
+    depends_on: 
+      - redis
+    networks:
+      - backend
+      - frontend
+
+  result:
+    build: ./voting-app
+    ports:
+      - 5001:80
+    links:
+      - db
+    networks:
+      - backend
+      - frontend
+
+  worker:
+    image: worker
+    links:
+      - redis
+      - db
+    networks:
+      - backend
+
+networks:
+  - frontend
+  - backend

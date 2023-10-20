@@ -1,0 +1,12 @@
+{
+  "name": "Docker-test",
+  "packageManager": "yarn@3.5.0",
+  "scripts": {
+    "build": "docker build -t saqlain1020/dockertest .",
+    "start": "node server.js",
+    "docker:start": "docker run -e MY_VAR=HelloWorl --name=docker-test -p 3000:3000 saqlain1020/dockertest"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
