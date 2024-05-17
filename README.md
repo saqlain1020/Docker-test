@@ -33,7 +33,7 @@ docker logs container_id
 # set env variable
 docker run -e VAR_NAME=VALUE image_name
 # build docker image using dockerfile
-docker build Dockerfile -t image_name
+docker build -t image_name . -f DockerfilePathIfNotDockerfile
 # push on docker hub
 docker push accname/image_name
 # see size of each build command for example package install size
