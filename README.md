@@ -56,3 +56,15 @@ docker-compose up
 docker run --cpus=.5 image_name
 # limit memory usage by mb (100mb)
 docker run --memory=100m image_name
+
+# Run Ubuntu Container
+docker run -it ubuntu
+
+# attach windows cmd to container
+docker exec -it container_name bash
+
+# Delete container
+docker rm -f container_name
+
+# Container Logs
+docker logs container_name
