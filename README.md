@@ -48,6 +48,10 @@ docker network create \ --driver bridge \ --subnet 182.18.0.0/16 custom-isolated
 docker volume create volume_name
 # mount volume
 docker run -v volume_name:/var/lib/mysql image_name
+# mount disk folder to container
+docker run -v C:\users\something\somefolder:\data\ image_name
+# mount nodejs project folder to container
+docker run -p 5173:5173 -it -v C:\users\something\somefolder:\data\ node:18-alpine
 # name the container
 docker run --name=name image_name
 # run docker-compose.yml
